@@ -1,0 +1,23 @@
+{
+  "name": "dev-renegades",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "lint:fix": "turbo lint:fix"
+  },
+  "keywords": [],
+  "author": "Jan Šimeček",
+  "license": "ISC",
+  "devDependencies": {
+    "@jsimck/eslint-config": "^2.0.1",
+    "@vitest/coverage-v8": "^4.0.2",
+    "eslint": "8",
+    "eslint-config-next": "^16.0.0",
+    "turbo": "^2.5.8",
+    "vitest": "^4.0.2"
+  },
+  "packageManager": "pnpm@10.0.0"
+}

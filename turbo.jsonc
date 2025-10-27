@@ -1,0 +1,39 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "concurrency": "20",
+  "ui": "tui",
+  "tasks": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "test": {
+      "inputs": [
+        "src/__tests__/**/*.{js,ts,jsx,tsx,cjs,mjs}",
+        "src/chunkers/__tests__/**/*.{js,ts,jsx,tsx,cjs,mjs}",
+        "src/**/*.{js,ts,jsx,tsx,cjs,mjs}",
+        "vitest.config.ts"
+      ],
+      "outputs": [
+        "coverage/**"
+      ]
+    },
+    "test:watch": {
+      "cache": false,
+      "persistent": true
+    },
+    "test:coverage": {
+      "dependsOn": ["test"],
+      "outputs": [
+        "coverage/**"
+      ]
+    },
+    "lint": {},
+    "lint:fix": {},
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
