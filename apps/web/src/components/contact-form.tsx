@@ -18,9 +18,12 @@ export function ContactForm() {
 
   return (
     <form action={formAction} className='space-y-6'>
-      <div className='space-y-2'>
-        <Label htmlFor='name' className='text-sm font-medium'>
-          Name *
+      <div className='space-y-3'>
+        <Label
+          htmlFor='name'
+          className='text-sm lowercase text-muted-foreground'
+        >
+          name *
         </Label>
         <Input
           id='name'
@@ -29,13 +32,16 @@ export function ContactForm() {
           placeholder='Your name'
           required
           disabled={isPending}
-          className='bg-card border-border'
+          className='bg-transparent border-border focus:border-primary transition-colors'
         />
       </div>
 
-      <div className='space-y-2'>
-        <Label htmlFor='email' className='text-sm font-medium'>
-          Email *
+      <div className='space-y-3'>
+        <Label
+          htmlFor='email'
+          className='text-sm lowercase text-muted-foreground'
+        >
+          email *
         </Label>
         <Input
           id='email'
@@ -44,13 +50,16 @@ export function ContactForm() {
           placeholder='your@email.com'
           required
           disabled={isPending}
-          className='bg-card border-border'
+          className='bg-transparent border-border focus:border-primary transition-colors'
         />
       </div>
 
-      <div className='space-y-2'>
-        <Label htmlFor='phone' className='text-sm font-medium'>
-          Phone <span className='text-muted-foreground'>(optional)</span>
+      <div className='space-y-3'>
+        <Label
+          htmlFor='phone'
+          className='text-sm lowercase text-muted-foreground'
+        >
+          phone <span className='text-muted-foreground/60'>(optional)</span>
         </Label>
         <Input
           id='phone'
@@ -58,13 +67,16 @@ export function ContactForm() {
           type='tel'
           placeholder='+1 (555) 000-0000'
           disabled={isPending}
-          className='bg-card border-border'
+          className='bg-transparent border-border focus:border-primary transition-colors'
         />
       </div>
 
-      <div className='space-y-2'>
-        <Label htmlFor='message' className='text-sm font-medium'>
-          Message *
+      <div className='space-y-3'>
+        <Label
+          htmlFor='message'
+          className='text-sm lowercase text-muted-foreground'
+        >
+          message *
         </Label>
         <Textarea
           id='message'
@@ -73,16 +85,16 @@ export function ContactForm() {
           required
           rows={6}
           disabled={isPending}
-          className='bg-card border-border resize-none'
+          className='bg-transparent border border-border focus:border-primary transition-colors resize-none'
         />
       </div>
 
       {state && (
         <div
-          className={`p-4 border ${
+          className={`p-4 border text-sm ${
             state.success
-              ? 'bg-secondary text-foreground border-border'
-              : 'bg-destructive/10 text-destructive border-destructive'
+              ? 'bg-transparent text-foreground border-border'
+              : 'bg-transparent text-destructive border-destructive'
           }`}
         >
           {state.success ? state.message : state.error}
@@ -92,9 +104,9 @@ export function ContactForm() {
       <Button
         type='submit'
         disabled={isPending}
-        className='w-full bg-primary text-primary-foreground hover:bg-primary/90 font-medium'
+        className='w-full border border-primary bg-transparent text-primary hover:bg-primary/10 active:bg-primary/20 font-medium lowercase text-lg py-6 transition-colors disabled:opacity-50'
       >
-        {isPending ? 'Sending...' : 'Send Message'}
+        {isPending ? 'sending...' : 'send message'}
       </Button>
     </form>
   );

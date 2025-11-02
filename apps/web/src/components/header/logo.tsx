@@ -1,9 +1,14 @@
 export function Logo() {
   return (
-    <div>
-      <h1 className='text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight mb-6'>
-        dev <span className='font-family-serif font-normal'>renegades</span>
-      </h1>
-    </div>
+    <a href='/' className='inline-block group'>
+      <div className='flex items-baseline gap-1'>
+        <span className='text-xl md:text-3xl font-bold tracking-tight lowercase'>
+          dev
+        </span>
+        <span className='text-xl md:text-3xl font-family-serif font-normal lowercase'>
+          renegades
+        </span>
+      </div>
+    </a>
   );
 }
