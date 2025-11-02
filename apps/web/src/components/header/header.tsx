@@ -1,49 +1,31 @@
+import { ListIcon } from '@phosphor-icons/react/dist/ssr';
+
 import { Logo } from './logo';
+import { Navigation } from './navigation';
 
 export function Header() {
   return (
-    <header className='border-border sticky top-0 bg-background/80 backdrop-blur-md z-50'>
-      <div className='container px-6 py-4 max-w-5xl mx-auto flex items-center justify-between'>
+    <header
+      className='border-border sticky top-0 bg-background/40 backdrop-blur-lg z-50'
+      role='banner'
+    >
+      <div className='container px-6 py-4 max-w-5xl mx-auto flex items-center justify-between relative'>
         <Logo />
 
-        <nav className='hidden md:flex items-center gap-8'>
-          <a
-            href='#about'
-            className='text-sm lowercase text-muted-foreground hover:text-foreground transition-colors'
-          >
-            about
-          </a>
-          <a
-            href='#contact'
-            className='text-sm lowercase text-muted-foreground hover:text-foreground transition-colors'
-          >
-            contact
-          </a>
-          <a
-            href='#contact'
-            className='inline-flex items-center justify-center px-6 py-2 text-sm lowercase border border-primary bg-transparent text-primary hover:bg-primary/10 active:bg-primary/20 font-medium transition-colors'
-          >
-            get started
-          </a>
-        </nav>
+        <Navigation />
 
-        <button className='md:hidden text-foreground' aria-label='Toggle menu'>
-          <svg
-            width='24'
-            height='24'
-            viewBox='0 0 24 24'
-            fill='none'
-            stroke='currentColor'
-            strokeWidth='2'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-          >
-            <line x1='3' y1='12' x2='21' y2='12' />
-            <line x1='3' y1='6' x2='21' y2='6' />
-            <line x1='3' y1='18' x2='21' y2='18' />
-          </svg>
+        {/* Mobile Menu Button */}
+        <button
+          className='md:hidden p-2 border border-border hover:border-primary text-foreground transition-all duration-300 group'
+          aria-label='Toggle navigation menu'
+          aria-expanded='false'
+        >
+          <ListIcon className='w-5 h-5 transition-transform group-hover:rotate-90 duration-300' />
         </button>
       </div>
+
+      {/* Subtle bottom accent */}
+      <div className='absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-primary/20 to-transparent' />
     </header>
   );
 }

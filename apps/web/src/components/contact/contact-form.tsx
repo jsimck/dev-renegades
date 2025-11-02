@@ -17,7 +17,12 @@ export function ContactForm() {
   );
 
   return (
-    <form action={formAction} className='space-y-6'>
+    <form
+      action={formAction}
+      className='space-y-6'
+      aria-label='Contact form'
+      noValidate
+    >
       <div className='space-y-3'>
         <Label
           htmlFor='name'
@@ -32,6 +37,8 @@ export function ContactForm() {
           placeholder='Your name'
           required
           disabled={isPending}
+          aria-required='true'
+          autoComplete='name'
           className='bg-transparent border-border focus:border-primary transition-colors'
         />
       </div>
@@ -50,6 +57,8 @@ export function ContactForm() {
           placeholder='your@email.com'
           required
           disabled={isPending}
+          aria-required='true'
+          autoComplete='email'
           className='bg-transparent border-border focus:border-primary transition-colors'
         />
       </div>
@@ -67,6 +76,8 @@ export function ContactForm() {
           type='tel'
           placeholder='+1 (555) 000-0000'
           disabled={isPending}
+          aria-required='false'
+          autoComplete='tel'
           className='bg-transparent border-border focus:border-primary transition-colors'
         />
       </div>
@@ -85,12 +96,15 @@ export function ContactForm() {
           required
           rows={6}
           disabled={isPending}
+          aria-required='true'
           className='bg-transparent border border-border focus:border-primary transition-colors resize-none'
         />
       </div>
 
       {state && (
         <div
+          role='alert'
+          aria-live='polite'
           className={`p-4 border text-sm ${
             state.success
               ? 'bg-transparent text-foreground border-border'
@@ -104,6 +118,7 @@ export function ContactForm() {
       <Button
         type='submit'
         disabled={isPending}
+        aria-disabled={isPending}
         className='w-full border border-primary bg-transparent text-primary hover:bg-primary/10 active:bg-primary/20 font-medium lowercase text-lg py-6 transition-colors disabled:opacity-50'
       >
         {isPending ? 'sending...' : 'send message'}
